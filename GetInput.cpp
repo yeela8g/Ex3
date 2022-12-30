@@ -29,7 +29,8 @@ void GetInput::input(std::string str1, std::string str2){
                v2= vec2; //intialize v2 member
                check.vectorSize(v1,v2); //check vector from equal size
                check.zeroDivision(v1,v2); //check no 0 in same position
-               check.isEmpty(v1,v2); //check vectors aren't empty
+               check.isEmpty(v1); //check vectors aren't empty
+               check.isEmpty(v2);
         }  
     }
     catch(...){ //if input inserted in a bad way, evoking input-error -> catch and inform check

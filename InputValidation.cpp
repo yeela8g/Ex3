@@ -33,10 +33,9 @@ void InputValidation::vectorSize(Vector v1, Vector v2){
     }
  }
 
- void InputValidation::isEmpty(Vector v1, Vector v2){
+ void InputValidation::isEmpty(Vector v1){
     std::vector<double> vec_v1 = v1.getVec();
-    std::vector<double> vec_v2 = v2.getVec();
-    if (vec_v1.empty() || vec_v2.empty()){
+    if (vec_v1.empty()){
         setValid(false);
     }
  }
@@ -61,10 +60,51 @@ void InputValidation::vectorSize(Vector v1, Vector v2){
                     return  setValid(false);
                 }
                 stod(newStr);
+               
                 
             }
         }catch (...) {
+            
             return setValid(false);
         }
+}
+
+bool InputValidation::validVectorMatricK(std::string str){
+    std::list<std::string> separatedStr;
+    std::stringstream ss(str);  //wrapping line for the getline function
+    std::string word;
+    while(std::getline(ss, word, ' ')){  //separetad each line by comma into the container
+        separatedStr.push_back(word);
+    }
+    if (separatedStr.size() < 3){
+        return 0;
+    }
+    std::string k = (separatedStr.back()); //push into k the last string from the user input
+    separatedStr.pop_back(); //remove the k from the list
+    std::string matric = (separatedStr.back()); //push into matric the second from the end user input
+    separatedStr.pop_back(); //remove the matric from the list
+    std::string x ="";
+    for(std::list<std::string>::iterator itrSeparatedStr = separatedStr.begin(); itrSeparatedStr != separatedStr.end(); itrSeparatedStr++){
+        x += *itrSeparatedStr; //creating string of features
+        x += " ";
+    }
+    bool flag = 1;
+    isNumber(x);
+    if(getValid()== false || x.empty()){
+        return 0;
+    }
+    if(matric!="AUC" && matric!="CHB" && matric!="CAN" && matric!="MIN" && matric!="MAN"){
+        return 0;
+    }
+    isNumber(k);
+    if (getValid()== false){
+        return 0;
+    } 
+    if(std::stoi(k)!= std::stod(k)){
+        return 0;
+    } else if (std::stoi(k)<1){
+        return 0;
+    }
+    return 1; // vector, distance and k are valid
 }
  

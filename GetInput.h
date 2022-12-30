@@ -1,7 +1,5 @@
 #include "InputValidation.h"
-#include <stdexcept>
-#include <fstream>
-#include <list>
+
 
 
 class GetInput{ //this class get input from user and catch exception from the stream, then send to validation class.
