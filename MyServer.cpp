@@ -1,16 +1,16 @@
-#include "myServer.h"
+#include "MyServer.h"
 
-myServer::myServer(std::string file1 ,int port1){ //constructor
+MyServer::MyServer(std::string file1 ,int port1){ //constructor
     file = file1;
     port = port1;
 }
 
-void myServer::loadFile(){ // export from file all features aand labeles as strings
+void MyServer::loadFile(){ // export from file all features aand labeles as strings
     GetInput in;//input validation object
     in.fileInput(file, featuresLabelsArr); //insert to the array the data from the file
 }
 
-void myServer::communicate(){ // create connection with client and conversate with him by getting (x,metric,k) or "-1" and sending classification (or invalid input). 
+void MyServer::communicate(){ // create connection with client and conversate with him by getting (x,metric,k) or "-1" and sending classification (or invalid input). 
     int sock= socket(AF_INET, SOCK_STREAM, 0); //create a TCP socket 
     if(sock < 0){
         perror("couldn't create socket");
@@ -71,7 +71,7 @@ void myServer::communicate(){ // create connection with client and conversate wi
     }
 }
 
-std::string myServer::mngKnn(std::string xStr, std::string metric, std::string kStr){
+std::string MyServer::mngKnn(std::string xStr, std::string metric, std::string kStr){
     GetInput in;
     std::list<Vector> xValidList;
     std::list<std::string> yValidList;

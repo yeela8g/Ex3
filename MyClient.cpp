@@ -1,9 +1,9 @@
 
-#include "myClient.h"
+#include "MyClient.h"
 
-myClient::myClient(){}//constructor
+MyClient::MyClient(){}//constructor
 
-void myClient::communicate(std::string ip,std::string port1){
+void MyClient::communicate(std::string ip,std::string port1){
     int port; //validation to port value.
     try {
         port = std::stoi(port1);//port is integer
@@ -60,7 +60,7 @@ void myClient::communicate(std::string ip,std::string port1){
     close(sock); //stop the connection to server-end the client program
 }
 
-bool myClient::validation(std::string str){ //send user input for component seprating and validating
+bool MyClient::validation(std::string str){ //send user input for component seprating and validating
     InputValidation check;
     std::string vectorMatricK[3];
     if(!check.separateVectorMatricK(str, vectorMatricK)){

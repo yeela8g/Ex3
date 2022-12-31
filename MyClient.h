@@ -8,9 +8,9 @@
 
 #define BUFFERSIZE 4096
 
-class myClient{
+class MyClient{
 public:
-myClient();//constructor
+MyClient();//constructor
 void communicate(std::string ip,std::string port);//send vector,metric,k to server for classifying
 bool validation(std::string str);//valid the vector,metric,k input from the user
 
