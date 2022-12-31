@@ -7,10 +7,10 @@
     k=k1;
     matric=matric1;
  }
-void Knn::predict(){
+std::string Knn::predict(){
     //creating dictane matric
     std::list<double> distanceMetx;
-     Dist distance; 
+    Dist distance; 
         if (matric =="AUC") { // for this matric go over listX calculate its distance from the X test sample and insert to the distance list
             for(std::list<Vector>::iterator itrX = xList.begin(); itrX != xList.end(); itrX++){
                     distanceMetx.push_back(distance.euclideanDistance(*itrX,x));
@@ -35,9 +35,6 @@ void Knn::predict(){
              for(std::list<Vector>::iterator itrX = xList.begin(); itrX != xList.end(); itrX++){
                 distanceMetx.push_back(distance.MinkowskiDistance(*itrX,x,distance.p));
              }
-        }
-        else{
-            throw std::runtime_error("wrong distance metric");
         }
         // find K closest labeles
         std::string closestKlableArr[k]; //initiation array for k closest labels
@@ -72,6 +69,6 @@ void Knn::predict(){
                 break;
             }
         }
-        std::cout<<predictedY<<std::endl; //print the predicted label
+        return predictedY; //print the predicted label
 
     }

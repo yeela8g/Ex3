@@ -22,7 +22,7 @@ void GetInput::input(std::string str1, std::string str2){
             check.isNumber(str1); //check input is digit
             check.isNumber(str2);
 
-        if (check.getValid()){ //if input is digit insert to vector and continue validation
+            if (check.getValid()){ //if input is digit insert to vector and continue validation
                Vector vec1(str1);
                v1= vec1; //intialize v1 memeber
                Vector vec2(str2);

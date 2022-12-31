@@ -14,5 +14,7 @@ public:
     void zeroDivision(Vector v1, Vector v2); //no positions with two 0 (for conbbera formula)
     void isEmpty(Vector v1); //no empty vector
     void isNumber(std::string str); //no chars inside the input
-    bool validVectorMatricK(std::string str);
+    bool separateVectorMatricK(std::string str, std::string (&vectorMatricK)[3]); //return 0 if less than 3 arguemnts sended to the server, else 1
+    bool validVectorMatricK(std::string (&vectorMatricK)[3]); //valid the 3 components from the user input
+
 };
