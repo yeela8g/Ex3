@@ -10,8 +10,8 @@
 
 class myClient{
 public:
-myClient();
-void communicate(std::string ip,std::string port);
-bool validation(std::string str);
+myClient();//constructor
+void communicate(std::string ip,std::string port);//send vector,metric,k to server for classifying
+bool validation(std::string str);//valid the vector,metric,k input from the user
 
 };

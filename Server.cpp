@@ -1,27 +1,21 @@
 #include "myServer.h"
 
 int main (int argc, char *argv[]){
-    if (argc == 3) {
-        //validation
-        int port;
+    if (argc == 3) { //check user gave ip and port
+        int port; //port validation
         try {
-             port = std::stoi(argv[2]);
+             port = std::stoi(argv[2]); //check port is integer
         } catch(...){
-            throw std::runtime_error("invalid port");
+            throw std::runtime_error("invalid port"); //not digit
         }
-        if (port <= 0 || port >= 65536){
+        if (port <= 0 || port >= 65536){ //chek port is in the right range
             throw std::runtime_error("invalid port");
         } else {
-         // create object with file and port members
-         myServer server(argv[1],port);
-         server.loadFile();
-         server.communicate();
+         myServer server(argv[1],port); // create myServer object with file and port members
+         server.loadFile(); //extract th features and labels from the csv file - still as string
+         server.communicate(); //classigy vector x to a client
         }
     } else {
-        throw std::runtime_error("invalid input");
+        throw std::runtime_error("invalid input"); //unvalid number of arguments
     }
-    
-    //init file 
-    
-    //connection server with client
 }

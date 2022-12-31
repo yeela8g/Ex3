@@ -1,4 +1,4 @@
-#include "GetOutput.h"
+#include "GetInput.h"
 
 class Knn{
     private:
@@ -10,5 +10,5 @@ class Knn{
 
     public:
     Knn(std::list<Vector> xList,std::list<std::string> yList,Vector x,int k,std::string matric); //constructor
-    void predict(); //calculat distances metrix, find k nearest neighbors and return most common labels
+    std::string predict(); //calculat distances metrix, find k nearest neighbors and return most common labels
 };
