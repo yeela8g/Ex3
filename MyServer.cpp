@@ -58,7 +58,7 @@ void MyServer::communicate(){ // create connection with client and conversate wi
             }else{
                 reply = mngKnn(vectorMatricK[0], vectorMatricK[1], vectorMatricK[2]);//knn
             } 
-            int sent_bytes = send(secondSock,reply.c_str(),reply.size(),0);//send response
+            int sent_bytes = send(secondSock,reply.c_str(),reply.size()+1,0);//send response
             if (sent_bytes < 0){
                 perror("error sending to client");
                 break;
