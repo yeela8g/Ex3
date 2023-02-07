@@ -42,7 +42,7 @@ void MyClient::communicate(std::string ip,std::string port1){
             std::cout<<"invalid input"<<std::endl;
             continue;
         }
-        if(send(sock,data.c_str(),strlen(data.c_str()),0) < 0) {//send input to server
+        if(send(sock,data.c_str(),strlen(data.c_str())+1,0) < 0) {//send input to server
             perror("error sending message to client");
             break;
         }
