@@ -1,7 +1,7 @@
 # Ex3
 ---
 ## Description
-the purpose this repository is to implement server-client communication where the clilent asks the server to classify a vector. client ask the user to enter input of the required vector, distance metric to calculate knn, and integer k of number of neighbors for the prediction.
+The purpose this repository is to implement server-client communication where the clilent asks the server to classify a vector. client ask the user to enter input of the required vector, distance metric to calculate knn, and integer k of number of neighbors for the prediction.
 the client validate the input and send it to the server. the server returns the knn prediction if the input is valid, otherwise returns "invalid input".
 
 the server program input is:
